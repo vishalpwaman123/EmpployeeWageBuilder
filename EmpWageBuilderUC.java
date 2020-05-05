@@ -1,5 +1,5 @@
 
-public class EmpWageBuilderUC6{
+public class EmpWageBuilderUC{
     public static int Full_Time=8;
     public static final int Full_Day=1;
     public static int Part_Time=4;
@@ -51,7 +51,7 @@ public class EmpWageBuilderUC6{
         //int CheckStatus = (int)(Math.floor(Math.random()*10)%3);
 
         CompanyWage("Dmart",20,2,10);
-
+	CompanyWage("RelianceMart",40,4,20);
     }
 
     }
