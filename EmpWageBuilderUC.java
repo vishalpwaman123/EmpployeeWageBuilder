@@ -1,58 +1,57 @@
-public class EmpWageBuilderUC{
-	public static int Wage_Per_Hours=20;
-	public static int Full_Time=16;
-	public static final int Full_Day=1;
-	public static int Part_Time=8;
-	public static final int Part_Day=2;
-	public static int Time=0;
-	public static int TotalWage=0;
-	public static int Max_Hours=100;
-	public static int Max_Days=20;
-	public static int Hours_Counter=0;
-	public static int Days_Counter=0;
 
-	public static void PresentAbsent(){
-	int CheckStatus=0;
-	int Daily_Wage=0;
-	for (  ; Days_Counter <= Max_Days && Hours_Counter <= Max_Hours ;  ){
-		
-		Days_Counter++;
-		
-		CheckStatus=(int)(Math.floor(Math.random()*10)%3);
-		
-		switch ( CheckStatus )
-		{
-		case Full_Day :
-			Time=Full_Time;
-			break;
-			 
-		case Part_Day :
-			Time=Part_Time;
-			break;
-		default :
-			Time=0;
-			//System.out.println("Employee is Absent ");
-			//System.out.println("Daily Wage is :"+Daily_Wage);
-			
-		}
-		Hours_Counter=Hours_Counter+Time;
-		Daily_Wage=Wage_Per_Hours*Time;
-		TotalWage=TotalWage+Daily_Wage;
-		System.out.println("Day "+(Days_Counter)+" Wage is :"+Daily_Wage);
-	}
-		
-		Hours_Counter=Hours_Counter-Time;
-		TotalWage=TotalWage-Daily_Wage;
-		System.out.println("Total Hours :"+Hours_Counter);
-		System.out.println("Total Days :"+Days_Counter);
-		System.out.println("Total Month Wage :"+TotalWage);
-}
-	public static void main(String[] args){
+public class EmpWageBuilderUC6{
+    public static int Full_Time=8;
+    public static final int Full_Day=1;
+    public static int Part_Time=4;
+    public static final int Part_Day=2;
+    public static int Time=0;
+    public static int TotalWage=0;
 
-	//int CheckStatus = (int)(Math.floor(Math.random()*10)%3);
-	
-	PresentAbsent();
 
-	}
+    public static void CompanyWage(String Company, int EmpRate, int NumberOfDay, int MaxHours){
+        int Hours_Counter=0;
+        int Days_Counter=0;
+        int CheckStatus=0;
+        int Daily_Wage=0;
+        for (  ; Days_Counter <= NumberOfDay && Hours_Counter <= MaxHours ;  ){
 
-}
+            Days_Counter++;
+
+            CheckStatus=(int)(Math.floor(Math.random()*10)%3);
+
+            switch ( CheckStatus )
+            {
+                case Full_Day :
+                    Time=Full_Time;
+                    break;
+
+                case Part_Day :
+                    Time=Part_Time;
+                    break;
+                default :
+                    Time=0;
+                    //System.out.println("Employee is Absent ");
+                    //System.out.println("Daily Wage is :"+Daily_Wage);
+
+            }
+            Hours_Counter=Hours_Counter+Time;
+            Daily_Wage=EmpRate*Time;
+            TotalWage=TotalWage+Daily_Wage;
+            System.out.println("Day "+(Days_Counter)+" Wage is :"+Daily_Wage);
+        }
+
+        Hours_Counter=Hours_Counter-Time;
+        TotalWage=TotalWage-Daily_Wage;
+        System.out.println("Total Hours :"+Hours_Counter);
+        System.out.println("Total Days :"+Days_Counter);
+        System.out.println("Total "+Company+" Employee Wage :"+TotalWage);
+    }
+    public static void main(String[] args){
+
+        //int CheckStatus = (int)(Math.floor(Math.random()*10)%3);
+
+        CompanyWage("Dmart",20,2,10);
+
+    }
+
+    }
